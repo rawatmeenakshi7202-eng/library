@@ -69,9 +69,7 @@ python lib.py
 http://127.0.0.1:5000
 ```
 
-## 📷 Screenshots
 
-Add screenshots of the application inside a `screenshots` folder.
 
 ## Future Improvements
 
