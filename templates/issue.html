@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1>Issue Book</h1>
+
+<form action="/issue_book" method="POST">
+
+    <label>Student</label>
+
+    <select name="student_name" required>
+        {% for student in students %}
+            <option value="{{ student[0] }}">{{ student[0] }}</option>
+        {% endfor %}
+    </select>
+
+    <label>Book</label>
+
+    <select name="book_id" required>
+        {% for book in books %}
+            <option value="{{ book[0] }}">
+                {{ book[1] }}
+            </option>
+        {% endfor %}
+    </select>
+
+    <label>Issue Date</label>
+
+    <input
+        type="date"
+        name="issue_date"
+        required>
+
+    <label>Return Date</label>
+
+    <input
+        type="date"
+        name="return_date"
+        required>
+
+    <button type="submit">
+        Issue Book
+    </button>
+
+</form>
+
+<br>
+
+<h2>Issued Books</h2>
+
+<table>
+
+<tr>
+
+    <th>Issue ID</th>
+    <th>Student</th>
+    <th>Book ID</th>
+    <th>Issue Date</th>
+    <th>Return Date</th>
+    <th>Status</th>
+    <th>Action</th>
+
+</tr>
+
+{% for i in issued %}
+
+<tr>
+
+    <td>{{ i[0] }}</td>
+    <td>{{ i[1] }}</td>
+    <td>{{ i[2] }}</td>
+    <td>{{ i[3] }}</td>
+    <td>{{ i[4] }}</td>
+    <td>{{ i[5] }}</td>
+
+    <td>
+
+        {% if i[5] == "Issued" %}
+
+        <a href="/return_book/{{ i[0] }}">
+            Return
+        </a>
+
+        {% else %}
+
+        Returned
+
+        {% endif %}
+
+    </td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}
