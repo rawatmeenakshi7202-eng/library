@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 from flask import Flask, render_template, request, redirect
 import mysql.connector
 app = Flask(__name__)
@@ -183,7 +183,6 @@ def return_page():
     return render_template("return.html", issued=issued)
 if __name__ == "__main__":
     app.run(debug=True)
-=======
 from flask import Flask, render_template, request, redirect
 import mysql.connector
 app = Flask(__name__)
@@ -289,4 +288,3 @@ def books():
     )
 if __name__ == "__main__":
     app.run(debug=True)
->>>>>>> 5d55e008ec69c1af3b987ce030d9a1d79a16a01d
